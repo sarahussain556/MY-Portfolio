@@ -1,0 +1,893 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sara Hussain | Front-end Developer</title>
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #4f46e5;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --gray-color: #94a3b8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin-left: 2rem;
+        }
+        
+        .nav-link {
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        #hero {
+            padding: 8rem 0 5rem;
+            background-color: white;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .hero-text {
+            flex: 1;
+            padding-right: 2rem;
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .hero-image img {
+            max-width: 80%;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--gray-color);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            margin-left: 1rem;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Skills Section */
+        #skills {
+            padding: 5rem 0;
+            background-color: #f1f5f9;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: var(--dark-color);
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-category h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-item {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-item:before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        /* Projects Section */
+        #projects {
+            padding: 5rem 0;
+        }
+        
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+        
+        .project-info {
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        
+        .project-tag {
+            background-color: rgba(99, 102, 241, 0.1);
+            color: var(--primary-color);
+            padding: 0.3rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-description {
+            color: var(--gray-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-links {
+            display: flex;
+        }
+        
+        .project-link {
+            margin-right: 1rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        .project-link:before {
+            content: "→";
+            margin-right: 0.3rem;
+        }
+        
+        /* Experience Section */
+        #experience {
+            padding: 5rem 0;
+            background-color: #f1f5f9;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            padding-right: calc(50% + 30px);
+        }
+        
+        .timeline-item:nth-child(even) {
+            padding-left: calc(50% + 30px);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-content {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .timeline-date {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-location {
+            color: var(--gray-color);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        
+        .timeline-description {
+            color: var(--dark-color);
+        }
+        
+        /* Contact Section */
+        #contact {
+            padding: 5rem 0;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .contact-info {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .contact-item p {
+            color: var(--gray-color);
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin: 0 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .social-link i {
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .copyright {
+            color: var(--gray-color);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            
+            .hero-text {
+                padding-right: 0;
+                margin-top: 2rem;
+            }
+            
+            .hero-description {
+                margin: 0 auto 2rem;
+            }
+            
+            .timeline:before {
+                left: 30px;
+            }
+            
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding-left: 80px;
+                padding-right: 0;
+            }
+            
+            .timeline-dot {
+                left: 30px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Sara Hussain</a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#hero" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                    <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Hey, I'm Sara Hussain</h1>
+                    <h2 class="hero-subtitle">Software Engineer & Front-end Developer</h2>
+                    <p class="hero-description">
+                        Experienced Software Engineer with 2.7 years of expertise in JavaScript, React, and AngularJS. Passionate about creating intuitive user interfaces and delivering high-performance web applications.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="profile.jpg" alt="Sara">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Front-end Development</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item">JavaScript (ES6+)</li>
+                        <li class="skill-item">React.js</li>
+                        <li class="skill-item">Angular.js</li>
+                        <li class="skill-item">HTML5 & CSS3</li>
+                        <li class="skill-item">SCSS/Sass</li>
+                        <li class="skill-item">Responsive Design</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Back-end Development</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item">Node.js</li>
+                        <li class="skill-item">Express.js</li>
+                        <li class="skill-item">MongoDB</li>
+                        <li class="skill-item">SQL & MySQL</li>
+                        <li class="skill-item">RESTful API Development</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item">Git & GitHub</li>
+                        <li class="skill-item">VS Code</li>
+                        <li class="skill-item">Firebase</li>
+                        <li class="skill-item">Redux</li>
+                        <li class="skill-item">Material UI</li>
+                        <li class="skill-item">Bootstrap</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-container">
+
+              <div class="project-card">
+                <div class="project-image">
+                    <img src="guessNum.png" alt="Guess no">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Number Guessinggame</h3>
+                    <div class="project-tags">
+                      
+                        <span class="project-tag">HTML5</span>
+                        <span class="project-tag">CSS</span>
+                        <span class="project-tag">JavaScript</span>
+                    </div>
+                    <p class="project-description">
+                      A game where you need to guess a number in a box. You will receive points based on your score.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/sarahussain556/Number-Guessing-game" class="project-link" target="_blank">GitHub</a>
+                        <a href="https://sarahussain556.github.io/Number-Guessing-game/" class="project-link" target="_blank">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-image">
+                  <img src="musicMaker.png" alt="music Maker App">
+              </div>
+              <div class="project-info">
+                  <h3 class="project-title">Music Maker  </h3>
+                  <div class="project-tags">
+                      <span class="project-tag">React.js</span>
+                      <span class="project-tag">HTML5</span>
+                      <span class="project-tag">CSS3</span>
+                      <span class="project-tag">JavaScript</span>
+                  </div>
+                  <p class="project-description">
+                    App where you can play different tones just like a piano
+                  </p>
+                  <div class="project-links">
+                      <a href="https://github.com/sarahussain556/Music-Maker-" class="project-link" target="_blank">GitHub</a>
+                      <a href="https://sarahussain556.github.io/Music-Maker-/" class="project-link" target="_blank">Live Demo</a>
+                  </div>
+              </div>
+          </div>
+
+
+              <div class="project-card">
+                <div class="project-image">
+                    <img src="HungerHub.png" alt="HungerHub App">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">HungerHub - Food Ordering App</h3>
+                    <div class="project-tags">
+                        <span class="project-tag">React.js</span>
+                        <span class="project-tag">Swiggy API</span>
+                        <span class="project-tag">CSS3</span>
+                        <span class="project-tag">JavaScript</span>
+                    </div>
+                    <p class="project-description">
+                        A modern food ordering application built with React.js that integrates with the Swiggy API. Features include restaurant browsing, menu viewing, cart functionality, and seamless checkout process.
+                    </p>
+                    <div class="project-links">
+                        <a href="#" class="project-link" target="_blank">GitHub</a>
+                        <a href="#" class="project-link" target="_blank">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="/api/placeholder/400/300" alt="Buzzz Application">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Buzzz Social Media Application</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">React.js</span>
+                            <span class="project-tag">Material UI</span>
+                            <span class="project-tag">Node.js</span>
+                            <span class="project-tag">MongoDB</span>
+                        </div>
+                        <p class="project-description">
+                            A full-stack social media application with features like image sharing, messaging, and user engagement. Implemented using React.js for the frontend and Node.js with MongoDB for the backend.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/sarahussain556/Buzz_Application" class="project-link" target="_blank">GitHub</a>
+                            <a href="#" class="project-link" target="_blank">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="Nameit.png" alt="Nameit Application">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Name it Application</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">React.js</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                        <p class="project-description">
+                            A web application that suggests names for your projects or domains. Built with React.js and deployed using GitHub Pages.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://github.com/sarahussain556/Nameit" class="project-link" target="_blank">GitHub</a>
+                            <a href="https://sarahussain556.github.io/Nameit/" class="project-link" target="_blank">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="Tataplay.png" alt="E-commerce Platform">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Tataplay portal</h3>
+                        <div class="project-tags">
+                            <span class="project-tag">Vanilla JS</span>
+                            <span class="project-tag">SCSS</span>
+                            <span class="project-tag">React</span>
+                        </div>
+                        <p class="project-description">
+                            Transformed an internal portal into a dynamic e-commerce platform using Vanilla JavaScript, SCSS, and React, implementing optimization strategies to boost page speed.
+                        </p>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">Case Study</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">August 2022 - Present</div>
+                        <h3 class="timeline-title">Software Engineer</h3>
+                        <p class="timeline-location">To The New Pvt Ltd, Noida</p>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Led transformation of internal portal into dynamic e-commerce platform</li>
+                                <li>Implemented optimization strategies to boost page speed</li>
+                                <li>Developed key features for PWC India client project</li>
+                                <li>Leading development of TV connection app with complex subscription logic</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">February 2022 - July 2022</div>
+                        <h3 class="timeline-title">Intern Software Engineer</h3>
+                        <p class="timeline-location">To The New Pvt Ltd, Noida</p>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Utilized React hooks and Redux for state management</li>
+                                <li>Implemented JavaScript promises and DOM manipulation</li>
+                                <li>Ensured responsive design using Bootstrap</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">August 2021 - August 2022</div>
+                        <h3 class="timeline-title">Core Team Member</h3>
+                        <p class="timeline-location">Google Developer Students Club (GDSC)</p>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Organized technical workshops and events</li>
+                                <li>Collaborated with team on various web development projects</li>
+                                <li>Mentored junior developers and students</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements">
+      <div class="container">
+          <h2 class="section-title">Personal Achievements</h2>
+          <div class="achievements-container">
+              <div class="achievement-card">
+                  <h3 class="achievement-title">Singing Coordinator</h3>
+                  <p class="achievement-description">
+                      Served as a singing coordinator during graduation, organizing and performing at various stage events. Trained and prepared fellow students for performances, enhancing the cultural experience of university events.
+                  </p>
+              </div>
+              <div class="achievement-card">
+                  <h3 class="achievement-title">Face Painting Competition</h3>
+                  <p class="achievement-description">
+                      Secured 2nd position in an interschool face painting competition, showcasing creativity and artistic skills against talented competitors from various schools.
+                  </p>
+              </div>
+              <div class="achievement-card">
+                  <h3 class="achievement-title">Hindi Drama Performer</h3>
+                  <p class="achievement-description">
+                      Participated in Hindi drama performances at school, developing confidence in public speaking and theatrical presentation while contributing to the school's cultural activities.
+                  </p>
+                </div>
+          </div>
+      </div>
+      </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>Email</h3>
+                        <p>sarahussain1398@gmail.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Phone</h3>
+                        <p>+91 8299076805</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>LinkedIn</h3>
+                        <p><a href="https://linkedin.com/in/sara-hussain-07359b207" target="_blank">linkedin.com/in/sara-hussain-07359b207</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>GitHub</h3>
+                        <p><a href="https://github.com/sarahussain556" target="_blank">github.com/sarahussain556</a></p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/sara-hussain-07359b207" class="social-link" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/sarahussain556" class="social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:sarahussain1398@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+                <p class="copyright">© 2025 Sara Hussain. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // In a real implementation, you would handle form submission here
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
